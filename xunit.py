@@ -1,19 +1,3 @@
-class TestResult:
-
-    def __init__(self):
-        self.runCount = 0
-        self.failedCount = 0
-
-    def testStarted(self):
-        self.runCount += 1
-
-    def testFailed(self):
-        self.failedCount += 1
-
-    def summary(self):
-        return "%d run, %d failed" % (self.runCount, self.failedCount) 
-
-
 class TestCase:
 
     def __init__(self, name):
@@ -50,6 +34,22 @@ class WasRun(TestCase):
 
     def tearDown(self):
         self.log = self.log + "tearDown "
+
+
+class TestResult:
+
+    def __init__(self):
+        self.runCount = 0
+        self.failedCount = 0
+
+    def testStarted(self):
+        self.runCount += 1
+
+    def testFailed(self):
+        self.failedCount += 1
+
+    def summary(self):
+        return "%d run, %d failed" % (self.runCount, self.failedCount) 
 
 
 class TestSuite:
