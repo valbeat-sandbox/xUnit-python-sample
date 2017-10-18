@@ -15,7 +15,6 @@ class TestCase:
         try:
             method = getattr(self, self.name)
             method()
-
         except:
             result.testFailed() 
         self.tearDown()
