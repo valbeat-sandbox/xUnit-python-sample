@@ -3,7 +3,7 @@ class TestResult:
     def __init__(self):
         self.runCount = 0
 
-    def onStartTest(self):
+    def testStarted(self):
         self.runCount += 1
 
     def summary(self):
@@ -23,7 +23,7 @@ class TestCase:
 
     def run(self):
         result = TestResult()
-        result.onStartTest()
+        result.testStarted()
         self.setUp()
         method = getattr(self, self.name)
         method()
