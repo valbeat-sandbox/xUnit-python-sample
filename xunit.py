@@ -1,16 +1,18 @@
 class TestCase:
-    pass
+
+    def __init__(self, name):
+        self.name = name
+
+    def Run(self):
+        method = getattr(self, self.name)
+        method()
 
 
 class WasRun(TestCase):
 
     def __init__(self, name):
         self.wasRun = None
-        self.name = name
-
-    def Run(self):
-        method = getattr(self, self.name)
-        method()
+        super().__init__(name)
 
     def testMethod(self):
         self.wasRun = 1
