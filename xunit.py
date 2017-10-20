@@ -1,3 +1,11 @@
+# -*- coding: utf-8 -*-
+
+"""
+    xunit.py
+
+    xUnitのpython実装サンプル
+"""
+
 class TestCase:
 
     def __init__(self, name):
