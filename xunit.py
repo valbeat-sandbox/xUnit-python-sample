@@ -6,8 +6,23 @@
     xUnitのpython実装サンプル
 """
 
-class TestCase:
 
+def main():
+    """
+        Entry Point
+    """
+    suite = TestSuite()
+    suite.add(TestCaseTest("testTemplateMethod"))
+    suite.add(TestCaseTest("testResult"))
+    suite.add(TestCaseTest("testFailedResult"))
+    suite.add(TestCaseTest("testFailedResultFormatting"))
+    suite.add(TestCaseTest("testSuite"))
+    result = TestResult()
+    suite.run(result)
+    print(result.summary())
+
+
+class TestCase:
     def __init__(self, name):
         self.name = name
 
@@ -107,12 +122,5 @@ class TestCaseTest(TestCase):
         assert("2 run, 1 failed" == result.summary())
 
 
-suite = TestSuite()
-suite.add(TestCaseTest("testTemplateMethod"))
-suite.add(TestCaseTest("testResult"))
-suite.add(TestCaseTest("testFailedResult"))
-suite.add(TestCaseTest("testFailedResultFormatting"))
-suite.add(TestCaseTest("testSuite"))
-result = TestResult()
-suite.run(result)
-print(result.summary())
+if __name__ == "__main__":
+    main()
